@@ -1,7 +1,6 @@
 import { createClient } from "@supabase/supabase-js";
 
-// These values are set during infrastructure setup (/setup-alpacapps-infra)
-const SUPABASE_URL = "YOUR_SUPABASE_URL";
-const SUPABASE_ANON_KEY = "YOUR_SUPABASE_ANON_KEY";
+const SUPABASE_URL = "https://nurkwzfiflrupqobgzvt.supabase.co";
+const SUPABASE_ANON_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im51cmt3emZpZmxydXBxb2JnenZ0Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzQwMTMzOTIsImV4cCI6MjA4OTU4OTM5Mn0.5Z_qyv5BhLPVXdPp-cD7Oy-VYzAKKYjKN4dpYGqVpcE";
 
 export const supabase = createClient(SUPABASE_URL, SUPABASE_ANON_KEY);

@@ -1,30 +1,40 @@
 # Database Schema Reference
 
 > This file is loaded on-demand. Referenced from CLAUDE.md.
-> Updated by the setup wizard and as tables are added/modified.
 
 ## Core Tables
 
-<!-- The setup wizard populates this section based on your domain -->
+### app_users
+User accounts linked to Supabase Auth. Role: oracle|admin|staff|resident|associate|demo.
+Columns: id, auth_user_id, email, display_name, role, avatar_url, person_id, permissions (JSONB), created_at
 
-```
-(tables will be listed here after setup)
-```
+### people
+Contacts, tenants, associates.
+Columns: id, first_name, last_name, email, phone, type, notes, created_at
 
-## Service Config Tables
+### property_config
+Singleton JSONB configuration (name, timezone, features).
+Columns: id (always 1), config (JSONB)
 
-These are created when optional services are enabled:
+### brand_config
+Singleton JSONB brand styling (colors, fonts, logos).
+Columns: id (always 1), config (JSONB)
 
-```
-telnyx_config    - SMS configuration (single row, id=1)
-resend_config    - Email configuration
-square_config    - Payment processing configuration
-signwell_config  - E-signature configuration
-```
+### media
+All uploaded files (photos, documents, images).
+Columns: id, url, filename, mime_type, width, height, caption, category, display_order, created_at
+
+## Email Tables
+
+### email_templates
+Customizable email templates with subject/body/category.
+Columns: id, name, subject, body, category, created_at, updated_at
+
+### inbound_emails
+Log of all received emails via Resend webhook.
+Columns: id, from_email, to_email, subject, body_text, body_html, received_at
 
 ## Common Patterns
 
 - All tables use UUID primary keys
-- All tables have `created_at` and `updated_at` timestamps
-- RLS is enabled on all tables
-- `is_archived` flag for soft deletes (filter client-side)
+- RLS is enabled on all tables (public read, authenticated write)
