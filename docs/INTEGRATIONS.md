@@ -17,7 +17,7 @@
 **DB Tables:** `email_templates`, `inbound_emails`
 **Supabase Secret:** `RESEND_API_KEY` (set)
 **Default From:** `onboarding@resend.dev` (verify domain for custom)
-**Webhook URL:** `https://nurkwzfiflrupqobgzvt.supabase.co/functions/v1/resend-inbound-webhook`
+**Webhook URL:** `https://cpyfckwfwbqyvwblaftv.supabase.co/functions/v1/resend-inbound-webhook`
 
 #### Domain Verification (optional)
 To send from your own domain, add DNS records at https://resend.com/domains:
